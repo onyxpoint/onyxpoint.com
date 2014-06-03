@@ -79,6 +79,7 @@ module Puppet
 
       validate do |value|
         Puppet.warning("#{resource[:name]}: Property :baz -> Validating")
+        Puppet.warning("#{resource[:name]}: Property :baz -> Foo is '#{resource[:foo]}'")
       end
 
       def insync?(is)

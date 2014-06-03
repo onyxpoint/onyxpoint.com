@@ -9,9 +9,9 @@ Puppet::Type.type(:ex_order).provide(:ruby) do
   def initialize(*args)
     super(*args)
 
-    Puppet.warning("Ex_Order Provider Initialization :name= '#{@resource[:name]}'")
-    Puppet.warning("Ex_Order Provider Initialization :foo = '#{@resource[:foo]}'")
-    Puppet.warning("Ex_Order Provider Initialization :bar = '#{@resource[:bar]}'")
+    Puppet.warning("Provider Initialization :name= '#{@resource[:name]}'")
+    Puppet.warning("Provider Initialization :foo = '#{@resource[:foo]}'")
+    Puppet.warning("Provider Initialization :bar = '#{@resource[:bar]}'")
   end
 
   def baz
@@ -25,5 +25,9 @@ Puppet::Type.type(:ex_order).provide(:ruby) do
 
   def flush
     Puppet.warning("Time to flush #{@resource[:name]}")
+  end
+
+  def self.post_resource_eval
+    Puppet.warning("WE'RE FINISHED!!!!")
   end
 end
